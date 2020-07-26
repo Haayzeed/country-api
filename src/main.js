@@ -8,9 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import index from './components/index.vue'
-import newBlog from './components/newBlog.vue'
-import blogs from './components/blogs.vue'
-import viewBlog from './components/viewBlog.vue'
+import viewCountry from './components/viewCountry.vue'
 
 
 // Vue.use(BootstrapVue)
@@ -22,18 +20,11 @@ const routes = [
     component: index
   },
   {
-    path: '/newBlog',
-    component: newBlog
-  },
-  {
-    path: '/blogs',
-    component: blogs
-  },
-  {
-    path: '/viewBlog/:id',
-    component: viewBlog
+    path: '/viewCountry/:name',
+    component: viewCountry
   }
 ]
+
 const router = new VueRouter({
   routes: routes,
   mode: "history"

@@ -17,11 +17,18 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    name: 'index',
     component: index
   },
   {
-    path: '/viewCountry/:name',
+    path: '/viewCountry/:alpha3Code',
+    name: 'viewCountry',
     component: viewCountry
+    //   children: [{
+    //   path: ':id',
+    //   name: 'viewCountry',
+    //   component: '',
+    // }]
   }
 ]
 

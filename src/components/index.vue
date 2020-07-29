@@ -22,7 +22,7 @@
                 <br>
                 <br>
                 <div class="col-md-3" v-for="(country, index) in filteredCountry" :key="index">
-                    <router-link :to="'viewCountry/' + country.name" class="h5 text-dark">
+                    <router-link :to="'viewCountry/' + country.alpha3Code" class="h5 text-dark">
                     <div class="card">
                         <div class="card-body">
                             <img :src="country.flag" alt="" class="img-fluid">
@@ -41,9 +41,13 @@
 </template>
 <script>
 export default {
-    data: function() {
+    // props:{
+    //     countries: Object
+    // },
+    data() {
         return {
             countries: [],
+            alpha3Code: this.$route.params.alpha3Code,
             search: '',
             regionn: '',
             regions: ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']

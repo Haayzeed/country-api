@@ -3,7 +3,7 @@
         <div class="container mt-5">
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <img :src="country.flag" alt="country flag" class="img-fluid">
+                    <img :src="userData.flag" alt="country flag" class="img-fluid">
                 </div>
             
         <div class="col-md-6">
@@ -47,7 +47,8 @@
                 </div>
                 <div class="col-md-12">
                     <ul>
-                        <li v-for="border in borders" :key="border"><router-link :to="borders" class="h5 text-dark">{{border}}</router-link></li>
+                        <!-- <li v-for="(border, index) in country.borders" :key="index"><router-link :to="border" class="h5 text-dark">{{border}}</router-link></li> -->
+                         <router-link :to="border" v-for="(border, index) in borders" :key="index">{{border}}</router-link>
                     </ul>
                     <!-- <p> <span class="font-weight-bold">Borders:</span>  <router-link :to="country.borders[0]" class="h5 text-dark">{{country.borders[0]}}</router-link></p> -->
                 </div>
@@ -62,41 +63,48 @@
 </template>
 <script>
 export default {
+    props: {
+        // countries: Object
+    },
     data(){
         return{
-            name: this.$route.params.name,
+            
+            alpha3Code: this.$route.params.alpha3Code,
             country: {},
+            userData: [],
             borders: []
+            // id: this.$route.params.name,
+            // countries: [],
+            // me: 'Nigeria'
+        }
+    },
+    watch:{
+        '$route'(to){
+            this.border = to.params.alpha3Code;
         }
     },
     methods: {
 
     },
     created(){
-      this.$http.get('https://restcountries.eu/rest/v2/name/'+ this.name).then(response =>{
-          console.log(response);
-          this.country = response.body[0];
-        //   console.log(this.country);
-          
-          const resultArray = [];
-          for (let key in response.body[0].borders){
-        //     // var result = this.users.push(response.data[key]);
-            // response.body[0]
-            console.log(response.body[0].borders[key]);
-            resultArray.push(response.body[0].borders[key]);
+        this.$http.get("https://restcountries.eu/rest/v2/all")
+       .then((response) => {
+         this.userData = response.data.find(
+          (tester) => tester.alpha3Code === this.$route.params.alpha3Code
+         );
+         this.borders = this.userData.borders;
+        //  console.log(response.data);
+        //  console.log(this.userData);
+        //  console.log(this.borders);
 
-            //  resultArray.push(response.data[key].value);
-        //     resultArray.push(response.body);
-          }
-          this.borders = resultArray;
-        //   console.log(resultArray);
-          console.log(this.country);
-          console.log(this.borders);
+        //  console.time(this.userData);
+       })
+       .catch((error) => console.error(error));
+    //   console.log(this.country)
+         
 
 
-        }, error=>{
-          console.log(error)
-        }) 
     }
+    
 }
 </script>

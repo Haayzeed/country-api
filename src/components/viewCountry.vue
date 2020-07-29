@@ -10,38 +10,38 @@
             <div class="row">
                 
                 <div class="col-md-6">
-                    <h4>{{country.name}}</h4>
+                    <h4>{{userData.name}}</h4>
                     <table>
                         <tr>
-                            <td><span class="font-weight-bold">Native Name:</span>{{country.nativeName}}</td>
+                            <td><span class="font-weight-bold">Native Name:</span>{{userData.nativeName}}</td>
                         </tr>
                         <tr>
-                            <td><span class="font-weight-bold">Population:</span>{{country.population}}</td>
+                            <td><span class="font-weight-bold">Population:</span>{{userData.population}}</td>
                         </tr>
                         <tr>
-                            <td><span class="font-weight-bold">Region:</span>{{country.region}}</td>
+                            <td><span class="font-weight-bold">Region:</span>{{userData.region}}</td>
                         </tr>
                         <tr>
-                            <td><span class="font-weight-bold">Sub Region:</span>{{country.subregion}}</td>
+                            <td><span class="font-weight-bold">Sub Region:</span>{{userData.subregion}}</td>
                         </tr>
                         <tr>
-                            <td><span class="font-weight-bold">Capital:</span>{{country.capital}}</td>
+                            <td><span class="font-weight-bold">Capital:</span>{{userData.capital}}</td>
                         </tr>
                     </table>
                 </div>
                 <div class="col-md-6">
                     <table>
                         <tr>
-                            <td><span class="font-weight-bold">Top Level Domain:</span>{{country.topLevelDomain}}</td>
+                            <td><span class="font-weight-bold">Top Level Domain:</span>{{userData.topLevelDomain[0]}}</td>
                         </tr>
-                        <!-- <tr>
-                            <td><span class="font-weight-bold">Currencies:</span>{{country.currencies[0].name}}</td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td><span class="font-weight-bold">Time Zone:</span>{{country.timezones[0]}}</td>
-                        </tr> -->
                         <tr>
-                            <td><span class="font-weight-bold">Area:</span>{{country.area}}</td>
+                            <td><span class="font-weight-bold">Currencies:</span>{{userData.currencies[0].name}}</td>
+                        </tr> 
+                        <tr>
+                            <td><span class="font-weight-bold">Time Zone:</span>{{userData.timezones[0]}}</td>
+                        </tr>
+                        <tr>
+                            <td><span class="font-weight-bold">Area:</span>{{userData.area}}</td>
                         </tr>
                     </table>
                 </div>

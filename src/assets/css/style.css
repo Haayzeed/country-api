@@ -1,18 +1,12 @@
 :root {
-    --primary-color: #302AE6;
     --secondary-color: hsl(0, 0%, 100%);
     --font-color: hsl(209, 23%, 22%);
     --bg-color: hsl(0, 0%, 98%);
-    --heading-color: #292922;
-    --slider-color: #000;
   }
   [data-theme="dark"] {
-    --primary-color: #808080;
     --secondary-color: hsl(209, 23%, 22%);
     --font-color: hsl(0, 0%, 100%);
     --bg-color: hsl(207, 26%, 17%);
-    --heading-color: #818cab;
-    --slider-color: #fff;
   }
 *{
     margin: 0;

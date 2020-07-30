@@ -13,7 +13,7 @@
                         <div class="col-md-6 regionSelect d-flex justify-content-end">
                             <div class="regionselector">
                                 <select class="form-control" v-model="regionn">
-                                    <option v-for="(region, index) in regions" :key="index" :selected="region == 'Filter by Region'">{{region}}</option>
+                                    <option v-for="(region, index) in regions" :key="index">{{region}}</option>
                                 </select>   
                             </div>             
                         </div>
@@ -47,7 +47,7 @@ export default {
             countries: [],
             alpha3Code: this.$route.params.alpha3Code,
             search: '',
-            regionn: '',
+            regionn: 'Filter by Region',
             regions: ['Filter by Region', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
         }
     },
@@ -97,7 +97,6 @@ export default {
         top: 50%;
         left: 35px;
         transform: translate(-50%, -50%);
-        color: var(--slider-color);
     }
     .regionselector{
         width: 30% !important;

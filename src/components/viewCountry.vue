@@ -102,7 +102,9 @@ export default {
 </script>
 <style scoped>
     .btn{
-        border: 1px solid var(--slider-color);
+        border: none;
+        color: var(--font-color);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
     .table tr td{
         font-size: 14px !important;

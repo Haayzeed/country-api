@@ -13,14 +13,14 @@
                         <div class="col-md-6 regionSelect d-flex justify-content-end">
                             <div class="regionselector">
                                 <select class="form-control" v-model="regionn">
-                                    <option v-for="region in regions" :key="region">{{region}}</option>
+                                    <option v-for="(region, index) in regions" :key="index" :selected="region == 'Filter by Region'">{{region}}</option>
                                 </select>   
                             </div>             
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3" v-for="(country, index) in filteredCountry" :key="index">
-                    <router-link :to="'viewCountry/' + country.alpha3Code" class="h5 text-dark text-decoration-none countryHolder">
+                    <router-link :to="'viewCountry/' + country.alpha3Code" class="h5 text-decoration-none countryHolder">
                         <div class="card">
                             <img class="card-img-top" :src="country.flag" :alt="country.name">
                             <div class="card-body">
@@ -53,7 +53,6 @@ export default {
     },
     created(){
         this.$http.get('https://restcountries.eu/rest/v2/all').then(response =>{
-            console.log(response);
             const resultArray = [];
           for (let key in response.data){
             response.data[key].id = key
@@ -84,7 +83,15 @@ export default {
         box-shadow: none;
     }
     .input{
-        padding-left: 35px;
+        padding:15px 0px 15px 40px;
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+        background: var(--secondary-color);
+        color: var(--font-color);
+        border: none;
+        font-size: 0.75em;
+    }
+    ::-webkit-input-placeholder{
+        color: var(--font-color);
     }
     .search-icon{
         top: 50%;
@@ -95,6 +102,12 @@ export default {
     .regionselector{
         width: 30% !important;
     }
+    .regionSelect select{
+        color: var(--font-color);
+        border: none;
+        background: var(--secondary-color);        
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+    }
     .card-img-top{
         min-height: 9em !important;
     }
@@ -102,6 +115,7 @@ export default {
         margin-bottom: 30px;
         min-height: 18em;
         background: var(--secondary-color);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     .card-body p{
         font-size: 16px;

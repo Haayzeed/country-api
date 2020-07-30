@@ -1,16 +1,16 @@
 :root {
     --primary-color: #302AE6;
     --secondary-color: hsl(0, 0%, 100%);
-    --font-color: #424242;
+    --font-color: hsl(209, 23%, 22%);
     --bg-color: hsl(0, 0%, 98%);
     --heading-color: #292922;
     --slider-color: #000;
   }
   [data-theme="dark"] {
-    --primary-color: #9A97F3;
-    --secondary-color: #818cab;
-    --font-color: #e1e1ff;
-    --bg-color: red;
+    --primary-color: #808080;
+    --secondary-color: hsl(209, 23%, 22%);
+    --font-color: hsl(0, 0%, 100%);
+    --bg-color: hsl(207, 26%, 17%);
     --heading-color: #818cab;
     --slider-color: #fff;
   }
@@ -26,4 +26,14 @@ body{
     margin: 0 auto;
     font-size: calc(1rem + 0.25vh);
 }
+a{
+  color: var(--font-color);
+}
+a:hover{
+  color: var(--font-color);
+}
+table tr td{
+  color: var(--font-color);
+}
+/* background: var(--secondary-color); */
 

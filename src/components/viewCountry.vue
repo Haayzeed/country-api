@@ -34,7 +34,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 pl-0">
                             <table class="table">
                                 <tr>
                                     <td><span class="font-weight-bold">Top Level Domain:</span> <span v-for="(levelDomain, index) in levelDomains" :key="index">{{levelDomain}}</span></td>
@@ -50,15 +50,9 @@
                         <div class="col-md-12 pl-0">
                             <table class="table">
                                 <tr>
-                                    <td><span class="font-weight-bold">Border Countries: </span>   <router-link :to="'' + border" v-for="(border, index) in borders" :key="index" class="borderLink">{{border}}</router-link></td>
+                                    <td><span class="font-weight-bold">Border Countries: </span>  <ul><router-link :to="'' + border" v-for="(border, index) in borders" :key="index" class="borderLink" tag="li">{{border}}</router-link></ul> </td>
                                     </tr>
                             </table>
-                            <p>
-                                
-                            </p>
-                            <ul>
-                               
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -97,13 +91,9 @@ export default {
        })
        .catch((error) => console.error(error));
       }
-      
     },
     mounted(){
         this.fetchCountry();
-    },
-    created(){
-           
     },
     updated() {
         this.fetchCountry();
@@ -123,8 +113,15 @@ export default {
     .borderLink{
         margin-right: 10px;
         padding: 5px 15px 5px 15px;
-        color: #fff;
+        color: var(--font-color);
         text-decoration: none;
-        background: var(--slider-color)
+        background: var(--secondary-color);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    ul li{
+        display: inline-block;
+        margin-bottom: 10px;
+        cursor: pointer;
+        background-color: var(--secondary-color);
     }
 </style>

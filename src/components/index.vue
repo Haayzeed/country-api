@@ -19,13 +19,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" v-for="(country, index) in filteredCountry" :key="index">
+                <div class="col-md-3 countryHolder" v-for="(country, index) in filteredCountry" :key="index">
                     <router-link :to="'viewCountry/' + country.alpha3Code" class="h5 text-decoration-none countryHolder">
                         <div class="card">
                             <img class="card-img-top" :src="country.flag" :alt="country.name">
                             <div class="card-body">
                                 <h5 class="font-weight-bold">{{country.name}}</h5>
-                                <p><span class="font-weight-bold"> Population:</span> {{country.population}}</p>
+                                <p><span class="font-weight-bold"> Population:</span> {{ Number(country.population).toLocaleString() }}</p>
                                 <p><span class="font-weight-bold">Region:</span> {{country.region}}</p>
                                 <p><span class="font-weight-bold">Capital:</span> {{country.capital}}</p>
                             </div>
@@ -99,7 +99,7 @@ export default {
         transform: translate(-50%, -50%);
     }
     .regionselector{
-        width: 30% !important;
+        width: 35% !important;
     }
     .regionSelect select{
         color: var(--font-color);
@@ -120,15 +120,23 @@ export default {
         font-size: 16px;
         margin-bottom: 2px;
     }
-    @media(max-width: 800px){
+    @media(max-width: 991px){
        .regionselector{
             width: 50% !important;
+        }
+        .countryHolder{
+            flex: 0 0 33%;
+            max-width: 33%;
         }
     }
     @media(max-width: 600px){
         .regionSelect{
             margin-top: 1em;
             justify-content: flex-start !important;
+        }
+        .countryHolder{
+            flex: 0 0 100%;
+            max-width: 100%;
         }
     }
     @media(max-width: 576px){

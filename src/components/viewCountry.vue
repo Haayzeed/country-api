@@ -21,7 +21,7 @@
                                     <td><span class="font-weight-bold">Native Name: </span>{{userData.nativeName}}</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="font-weight-bold">Population: </span>{{userData.population}}</td>
+                                    <td><span class="font-weight-bold">Population: </span>{{ Number(userData.population).toLocaleString() }}</td>
                                 </tr>
                                 <tr>
                                     <td><span class="font-weight-bold">Region: </span>{{userData.region}}</td>
@@ -43,7 +43,7 @@
                                     <td><span class="font-weight-bold">Currencies:</span>  <span v-for="(currency, index) in currencies" :key="index">{{currency.name}}</span></td>
                                 </tr> 
                                 <tr>
-                                    <td><span class="font-weight-bold">Languages:</span> <span v-for="(language, index) in languages" :key="index">{{language.name}}</span></td>
+                                    <td><span class="font-weight-bold">Languages:</span> <span v-for="(language, index) in languages" :key="index">{{language.name}}<span v-if="index != (language.length - 1)">, </span></span></td>
                                 </tr>
                             </table>
                         </div>

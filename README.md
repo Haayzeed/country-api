@@ -1,4 +1,4 @@
-# Frontend Mentor - REST Countries API with color theme switcher
+# Frontend Mentor - REST Countries API with color theme switcher built with VueJs
 
 The challenge is to integrate with the [REST Countries API](https://restcountries.eu) to pull country data and display it.
 

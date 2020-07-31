@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div class="loader" v-if="loader"></div>
         <mainHeader></mainHeader>
         <div class="container">
             <div class="row">
@@ -44,6 +45,7 @@ export default {
     },
     data() {
         return {
+            loader: false,
             countries: [],
             alpha3Code: this.$route.params.alpha3Code,
             search: '',
@@ -52,7 +54,9 @@ export default {
         }
     },
     created(){
+        this.loader = true;
         this.$http.get('https://restcountries.eu/rest/v2/all').then(response =>{
+            this.loader = false;
             const resultArray = [];
           for (let key in response.data){
             response.data[key].id = key
@@ -144,4 +148,29 @@ export default {
             margin-top: 1em;
         }
     }
+    /* Preloader */
+    .loader{
+			width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			border: 8px solid black;
+			border-left: 8px solid lightgray;
+			border-top:  8px solid lightgray;
+			border-bottom:  8px solid lightgray;
+			position: absolute;
+			top: 50%;
+            left: 50%;
+            z-index: 5;
+			transform: translate(-50%, -50%);
+			animation: roll 1s infinite;
+
+		}
+		@keyframes roll{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
 </style>
